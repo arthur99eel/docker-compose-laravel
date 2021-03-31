@@ -14,35 +14,35 @@ jobs:
     
     - uses: azure/docker-login@v1
       with:
-        login-server: influencer-jobs.azurecr.io
-        username: ${{ secrets.acr_influencer-jobs_username }}
-        password: ${{ secrets.acr_influencer-jobs_password }}
+        login-server: influencerjobs.azurecr.io
+        username: ${{ secrets.acr_influencerjobs_username }}
+        password: ${{ secrets.acr_influencerjobs_password }}
     
     - name: Build and push image to ACR
       id: build-image
       run: |
-        docker build "./" -f  "Dockerfile" -t influencer-jobs.azurecr.io/influencer-jobs-img:${{ github.sha }}
-        docker push influencerjobs.azurecr.io/influencer-jobs-img:${{ github.sha }}
+        docker build "./" -f  "Dockerfile" -t influencerjobs.azurecr.io/influencerjobs-img:${{ github.sha }}
+        docker push influencerjobs.azurecr.io/influencerjobs-img:${{ github.sha }}
 
     - name: Set Web App ACR authentication
       uses: Azure/appservice-settings@v1
       with: 
-        app-name: influencer-jobs
+        app-name: InfluencerJobs
         app-settings-json: | 
           [
             {
               "name": "DOCKER_REGISTRY_SERVER_URL",
-              "value": "influencer-jobs.azurecr.io",
+              "value": "influencerjobs.azurecr.io",
               "slotSetting": false
             },
             {
               "name": "DOCKER_REGISTRY_SERVER_USERNAME",
-              "value": "${{ secrets.acr_influencer-jobs_username }}",
+              "value": "${{ secrets.acr_influencerjobs_username }}",
               "slotSetting": false
             },
             {
               "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
-              "value": "${{ secrets.acr_influencer-jobs_password }}",
+              "value": "${{ secrets.acr_influencerjobs_password }}",
               "slotSetting": false
             }            
           ]
@@ -50,4 +50,4 @@ jobs:
     - uses: azure/webapps-deploy@v2
       with:
         app-name: InfluencerJobs
-        images: influencer-jobs.azurecr.io/influencer-jobs-img:${{ github.sha }}
+        images: influencerjobs.azurecr.io/influencerjobs-img:${{ github.sha }}
