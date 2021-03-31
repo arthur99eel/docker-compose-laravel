@@ -29,7 +29,7 @@ jobs:
       with: 
         app-name: influencer-jobs
 
-        app-settings-json: | 
+        app-settings-json: |
           [
             {
               "name": "DOCKER_REGISTRY_SERVER_URL",
