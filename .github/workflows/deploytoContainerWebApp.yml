@@ -25,7 +25,7 @@ jobs:
         docker push influencerjobs.azurecr.io/influencerjobs-img:${{ github.sha }}
 
     - name: Set Web App ACR authentication
-      uses: Azure/appservice-settings@v1
+      uses: azure/appservice-settings@v1
       with: 
         app-name: InfluencerJobs
 
