@@ -1,3 +1,4 @@
 {
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "/subscriptions/e620ecab-14a1-45e5-8673-ff5827466f98/resourceGroups/InfluencerJobs/providers/Microsoft.Web/sites/influencer-jobs"
 }
