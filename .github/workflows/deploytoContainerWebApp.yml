@@ -14,7 +14,7 @@ jobs:
     
     - uses: azure/docker-login@v1
       with:
-        login-server: influencerjobs.azurecr.io
+        login-server: influencer-jobs.azurecr.io
         username: ${{ secrets.acr_influencer-jobs_username }}
         password: ${{ secrets.acr_influencer-jobs_password }}
     
