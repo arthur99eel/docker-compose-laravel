@@ -27,7 +27,7 @@ jobs:
     - name: Set Web App ACR authentication
       uses: Azure/appservice-settings@v1
       with: 
-        app-name: influencerjobs
+        app-name: influencer-jobs
 
         app-settings-json: | 
           [
@@ -50,6 +50,6 @@ jobs:
       
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: influencerjobs
+        app-name: influencer-jobs
 
         images: influencerjobs.azurecr.io/influencerjobs-img:${{ github.sha }}
